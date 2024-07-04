@@ -100,17 +100,12 @@ namespace practic {
 			this->Controls->Add(this->time_textbox);
 			this->Name = L"show_time_dialog";
 			this->Text = L"show_time_dialog";
-			this->Load += gcnew System::EventHandler(this, &show_time_dialog::show_time_dialog_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
 
-	private: System::Void show_time_dialog_Load(System::Object^ sender, System::EventArgs^ e) 
-	{
-		//time_textbot->Text = duration_ms;
-	}
 	private: System::Void time_ok_btn_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
 		this->Close();

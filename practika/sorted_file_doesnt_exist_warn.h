@@ -10,12 +10,12 @@ namespace practic {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Summary for arr_file_doesnt_exist_warn
+	/// Summary for sorted_file_doesnt_exist_warn
 	/// </summary>
-	public ref class arr_file_doesnt_exist_warn : public System::Windows::Forms::Form
+	public ref class sorted_file_doesnt_exist_warn : public System::Windows::Forms::Form
 	{
 	public:
-		arr_file_doesnt_exist_warn(void)
+		sorted_file_doesnt_exist_warn(void)
 		{
 			InitializeComponent();
 			//
@@ -27,7 +27,7 @@ namespace practic {
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
-		~arr_file_doesnt_exist_warn()
+		~sorted_file_doesnt_exist_warn()
 		{
 			if (components)
 			{
@@ -50,7 +50,7 @@ namespace practic {
 		{
 			this->components = gcnew System::ComponentModel::Container();
 			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"arr_file_doesnt_exist_warn";
+			this->Text = L"sorted_file_doesnt_exist_warn";
 			this->Padding = System::Windows::Forms::Padding(0);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 		}

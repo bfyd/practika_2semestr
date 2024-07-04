@@ -86,6 +86,7 @@ namespace practic {
 			this->button1->TabIndex = 2;
 			this->button1->Text = L"OK";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &sorted_file_doesnt_exist_warn::button1_Click);
 			// 
 			// sorted_file_doesnt_exist_warn
 			// 
@@ -108,5 +109,9 @@ namespace practic {
 
 		}
 #pragma endregion
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) 
+	{
+		this->Close();
+	}
 	};
 }

@@ -120,13 +120,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="arr_file_doesnt_exist_warn.cpp" />
+    <ClCompile Include="directory_doesnt_exist.cpp" />
     <ClCompile Include="done_dialog.cpp" />
+    <ClCompile Include="file_doesnot_exists.cpp" />
     <ClCompile Include="generate_dialog.cpp" />
     <ClCompile Include="main_form.cpp" />
+    <ClCompile Include="rewrite_sorted_file_warn.cpp" />
+    <ClCompile Include="rewrite_arr_file_warn.cpp" />
+    <ClCompile Include="show_time_dialog.cpp" />
     <ClCompile Include="sort_array.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="arr_file_doesnt_exist_warn.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="directory_doesnt_exist.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="done_dialog.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="show_time_dialog.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="sorted_file_doesnot_exists.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="generate_dialog.h">
@@ -135,17 +153,41 @@
     <ClInclude Include="main_form.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="rewrite_sorted_file_warn.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="rewrite_arr_file_warn.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="sort_array.h" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="arr_file_doesnt_exist_warn.resx">
+      <DependentUpon>arr_file_doesnt_exist_warn.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="directory_doesnt_exist.resx">
+      <DependentUpon>directory_doesnt_exist.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="done_dialog.resx">
       <DependentUpon>done_dialog.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rewrite_sorted_file_warn.resx">
+      <DependentUpon>rewrite_sorted_file_warn.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="show_time_dialog.resx">
+      <DependentUpon>show_time_dialog.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sorted_file_doesnot_exists.resx">
+      <DependentUpon>sorted_file_doesnot_exists.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="generate_dialog.resx">
       <DependentUpon>generate_dialog.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="main_form.resx">
       <DependentUpon>main_form.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rewrite_arr_file_warn.resx">
+      <DependentUpon>rewrite_arr_file_warn.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

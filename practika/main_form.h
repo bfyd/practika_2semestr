@@ -5,8 +5,14 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include "arr_file_doesnt_exist_warn.h"
 #include "done_dialog.h"
 #include "generate_dialog.h"
+#include "rewrite_arr_file_warn.h"
+#include "rewrite_sorted_file_warn.h"
+#include "sorted_file_doesnot_exists.h"
+#include "directory_doesnt_exist.h"
+#include "show_time_dialog.h"
 #include "sort_array.h"
 #include <chrono>
 
@@ -167,7 +173,8 @@ namespace practic {
 		}
 		else
 		{
-			// TODO: array file does not exist error
+			arr_file_doesnt_exist_warn^ form4 = gcnew arr_file_doesnt_exist_warn();
+			form4->ShowDialog();
 		}
 	}
 
@@ -180,7 +187,8 @@ namespace practic {
 		}
 		else
 		{
-			// TODO: sorted file does not exist error
+			sorted_file_doesnot_exists^ form5 = gcnew sorted_file_doesnot_exists();
+			form5->ShowDialog();
 		}
 	}
 	private: System::Void open_files_directory_button_Click(System::Object^ sender, System::EventArgs^ e)
@@ -192,7 +200,8 @@ namespace practic {
 		}
 		else 
 		{
-			// TODO: dir does not exist error
+			directory_doesnt_exist^ form5 = gcnew directory_doesnt_exist();
+			form5->ShowDialog();
 		}
 	}
 
@@ -212,24 +221,32 @@ namespace practic {
 				std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
 				if (!result)
 				{
-					// TODO: sort error
+					rewite_sorted_file_warn^ form8 = gcnew rewite_sorted_file_warn;
+					form8->ShowDialog();
+					return;
 				}
 				duration_ms = ((float)std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count())/1000;
 
 				if (!save_array_to_file(sorted_filename, array, size))
 				{
-					// TODO: sort error
+					rewite_sorted_file_warn^ form8 = gcnew rewite_sorted_file_warn;
+					form8->ShowDialog();
+					return;
 				}
 			}
 			else
 			{
-				// TODO: sort error
+				rewite_sorted_file_warn^ form8 = gcnew rewite_sorted_file_warn;
+				form8->ShowDialog();
+				return;
 			}
-			// TODO: show time elapsed
+			show_time_dialog^ form9 = gcnew show_time_dialog(duration_ms);
+			form9->ShowDialog();
 		}
 		else 
 		{
-			// TODO: array does not exist error
+			arr_file_doesnt_exist_warn^ form6 = gcnew arr_file_doesnt_exist_warn;
+			form6->ShowDialog();
 		}
 	}
 };

@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 #include "sort_array.h"
-#include "rewrite_arr_file_warn.h"
+#include "arr_file_doesnt_exist_warn.h"
 
 namespace practic {
 
@@ -94,7 +94,6 @@ namespace practic {
 			this->text_size->Size = System::Drawing::Size(100, 20);
 			this->text_size->TabIndex = 0;
 			this->text_size->Text = L"100";
-			this->text_size->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &generate_dialog::text_size_KeyDown);
 			// 
 			// text_from
 			// 
@@ -103,7 +102,6 @@ namespace practic {
 			this->text_from->Size = System::Drawing::Size(100, 20);
 			this->text_from->TabIndex = 1;
 			this->text_from->Text = L"0";
-			this->text_from->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &generate_dialog::text_from_KeyDown);
 			// 
 			// generate_button
 			// 
@@ -140,7 +138,6 @@ namespace practic {
 			this->text_to->Size = System::Drawing::Size(100, 20);
 			this->text_to->TabIndex = 5;
 			this->text_to->Text = L"10";
-			this->text_to->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &generate_dialog::text_to_KeyDown);
 			// 
 			// label3
 			// 
@@ -206,43 +203,16 @@ namespace practic {
 		{
 			if (!generate_array_to_file("array.txt", array_from, array_to, array_size))
 			{
-				rewrite_arr_file_warn^ form7 = gcnew rewrite_arr_file_warn;
+				arr_file_doesnt_exist_warn^ form7 = gcnew arr_file_doesnt_exist_warn;
 				form7->ShowDialog();
 			}
 		}
 		else 
 		{
-			rewrite_arr_file_warn^ form7 = gcnew rewrite_arr_file_warn;
+			arr_file_doesnt_exist_warn^ form7 = gcnew arr_file_doesnt_exist_warn;
 			form7->ShowDialog();
 		}
 		this->Close();
-	}
-
-	private: System::Void text_size_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) 
-	{
-		if (e->KeyCode == Keys::Enter)
-		{
-			std::string temp = marshal_string(text_from->Text);
-			array_size = stoi(temp, nullptr, 10);
-		}
-	}
-
-	private: System::Void text_from_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) 
-	{
-		if (e->KeyCode == Keys::Enter)
-		{
-			std::string temp = marshal_string(text_from->Text);
-			array_from = stoi(temp, nullptr, 10);
-		}
-	}
-
-	private: System::Void text_to_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) 
-	{
-		if (e->KeyCode == Keys::Enter)
-		{
-			std::string temp = marshal_string(text_from->Text);
-			array_to = stoi(temp, nullptr, 10);
-		}
 	}
 };
 }

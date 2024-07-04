@@ -6,11 +6,10 @@
 #include <string>
 #include <cstdlib>
 #include "arr_file_doesnt_exist_warn.h"
-#include "done_dialog.h"
 #include "generate_dialog.h"
 #include "rewrite_arr_file_warn.h"
 #include "rewrite_sorted_file_warn.h"
-#include "sorted_file_doesnot_exists.h"
+#include "sorted_file_doesnt_exist_warn.h"
 #include "directory_doesnt_exist.h"
 #include "show_time_dialog.h"
 #include "sort_array.h"
@@ -187,7 +186,7 @@ namespace practic {
 		}
 		else
 		{
-			sorted_file_doesnot_exists^ form5 = gcnew sorted_file_doesnot_exists();
+			sorted_file_doesnt_exist_warn^ form5 = gcnew sorted_file_doesnt_exist_warn();
 			form5->ShowDialog();
 		}
 	}
@@ -221,7 +220,7 @@ namespace practic {
 				std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
 				if (!result)
 				{
-					rewite_sorted_file_warn^ form8 = gcnew rewite_sorted_file_warn;
+					sorted_file_doesnt_exist_warn^ form8 = gcnew sorted_file_doesnt_exist_warn;
 					form8->ShowDialog();
 					return;
 				}
@@ -229,14 +228,14 @@ namespace practic {
 
 				if (!save_array_to_file(sorted_filename, array, size))
 				{
-					rewite_sorted_file_warn^ form8 = gcnew rewite_sorted_file_warn;
+					sorted_file_doesnt_exist_warn^ form8 = gcnew sorted_file_doesnt_exist_warn;
 					form8->ShowDialog();
 					return;
 				}
 			}
 			else
 			{
-				rewite_sorted_file_warn^ form8 = gcnew rewite_sorted_file_warn;
+				sorted_file_doesnt_exist_warn^ form8 = gcnew sorted_file_doesnt_exist_warn;
 				form8->ShowDialog();
 				return;
 			}

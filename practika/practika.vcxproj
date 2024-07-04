@@ -123,6 +123,7 @@
     <ClCompile Include="done_dialog.cpp" />
     <ClCompile Include="generate_dialog.cpp" />
     <ClCompile Include="main_form.cpp" />
+    <ClCompile Include="sort_array.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="done_dialog.h">
@@ -134,6 +135,7 @@
     <ClInclude Include="main_form.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="sort_array.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="done_dialog.resx">

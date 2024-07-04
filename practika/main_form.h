@@ -1,9 +1,14 @@
 #pragma once
 
+#include <filesystem>
+#include <fstream>
 #include <iostream>
 #include <string>
+#include <cstdlib>
 #include "done_dialog.h"
 #include "generate_dialog.h"
+#include "sort_array.h"
+#include <chrono>
 
 namespace practic {
 
@@ -14,7 +19,11 @@ namespace practic {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::Diagnostics;
+	namespace fs = std::filesystem;
 
+	const std::string array_filename = "array.txt";
+	const std::string sorted_filename = "sorted.txt";
+	float duration_ms;
 	/// <summary>
 	/// Summary for main_form
 	/// </summary>
@@ -151,21 +160,77 @@ namespace practic {
 	}
 	private: System::Void open_array_file_button_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		// TODO: open array file as .txt
+		fs::path filename = array_filename;
+		if (fs::exists(filename))
+		{
+			Process::Start("notepad.exe", gcnew String(filename.string().c_str()));
+		}
+		else
+		{
+			// TODO: array file does not exist error
+		}
 	}
 
 	private: System::Void open_sorted_file_button_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		// TODO: open sorted file as .txt
+		fs::path filename = sorted_filename;
+		if (fs::exists(filename))
+		{
+			Process::Start("notepad.exe", gcnew String(filename.string().c_str()));
+		}
+		else
+		{
+			// TODO: sorted file does not exist error
+		}
 	}
 	private: System::Void open_files_directory_button_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		// TODO: open directory in explorer
+		fs::path dir_path = fs::current_path();
+		if (fs::exists(dir_path) && fs::is_directory(dir_path))
+		{
+			Process::Start("explorer.exe", gcnew String(dir_path.string().c_str()));
+		}
+		else 
+		{
+			// TODO: dir does not exist error
+		}
 	}
 
 	private: System::Void sort_elements_button_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
-		// TODO: array sorting
+		fs::path filename = array_filename;
+		if (fs::exists(filename))
+		{
+			int32_t* array = nullptr;
+			size_t size = 0;
+
+			if (read_array_from_file(array_filename, array, size))
+			{
+				bool result = false;
+				std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
+				result = sort_array(array, size);
+				std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+				if (!result)
+				{
+					// TODO: sort error
+				}
+				duration_ms = ((float)std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count())/1000;
+
+				if (!save_array_to_file(sorted_filename, array, size))
+				{
+					// TODO: sort error
+				}
+			}
+			else
+			{
+				// TODO: sort error
+			}
+			// TODO: show time elapsed
+		}
+		else 
+		{
+			// TODO: array does not exist error
+		}
 	}
 };
 }

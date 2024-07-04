@@ -1,6 +1,8 @@
 #pragma once
+#include <fstream>
 #include <iostream>
 #include <string>
+#include "sort_array.h"
 
 namespace practic {
 
@@ -12,6 +14,7 @@ namespace practic {
 	using namespace System::Drawing;
 	using namespace std;
 
+	std::string marshal_string(String^ s);
 
 	/// <summary>
 	/// Summary for generate_dialog
@@ -39,7 +42,9 @@ namespace practic {
 			}
 		}
 	public:
-
+		size_t array_size;
+		int array_from;
+		int array_to;
 	protected:
 
 	private: System::Windows::Forms::TextBox^ text_from;
@@ -187,7 +192,26 @@ namespace practic {
 
 	private: System::Void generate_button_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
-		
+		std::string temp = marshal_string(text_size->Text);
+		array_size = stoi(temp, nullptr, 10);
+
+		temp = marshal_string(text_from->Text);
+		array_from = stoi(temp, nullptr, 10);
+
+		temp = marshal_string(text_to->Text);
+		array_to = stoi(temp, nullptr, 10);
+
+		if (array_size) 
+		{
+			if (!generate_array_to_file("array.txt", array_from, array_to, array_size))
+			{
+				// TODO: array file does not exist error
+			}
+		}
+		else 
+		{
+			// TODO: array file does not exist error
+		}
 		this->Close();
 	}
 
@@ -195,7 +219,8 @@ namespace practic {
 	{
 		if (e->KeyCode == Keys::Enter)
 		{
-			// TODO: save data by pressing enter
+			std::string temp = marshal_string(text_from->Text);
+			array_size = stoi(temp, nullptr, 10);
 		}
 	}
 
@@ -203,7 +228,8 @@ namespace practic {
 	{
 		if (e->KeyCode == Keys::Enter)
 		{
-			// TODO: save data by pressing enter
+			std::string temp = marshal_string(text_from->Text);
+			array_from = stoi(temp, nullptr, 10);
 		}
 	}
 
@@ -211,7 +237,8 @@ namespace practic {
 	{
 		if (e->KeyCode == Keys::Enter)
 		{
-			// TODO: save data by pressing enter
+			std::string temp = marshal_string(text_from->Text);
+			array_to = stoi(temp, nullptr, 10);
 		}
 	}
 };

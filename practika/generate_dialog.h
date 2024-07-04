@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include "sort_array.h"
+#include "rewrite_arr_file_warn.h"
 
 namespace practic {
 
@@ -205,12 +206,14 @@ namespace practic {
 		{
 			if (!generate_array_to_file("array.txt", array_from, array_to, array_size))
 			{
-				// TODO: array file does not exist error
+				rewrite_arr_file_warn^ form7 = gcnew rewrite_arr_file_warn;
+				form7->ShowDialog();
 			}
 		}
 		else 
 		{
-			// TODO: array file does not exist error
+			rewrite_arr_file_warn^ form7 = gcnew rewrite_arr_file_warn;
+			form7->ShowDialog();
 		}
 		this->Close();
 	}

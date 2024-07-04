@@ -10,12 +10,12 @@ namespace practic {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Summary for rewrite_arr_file_warn
+	/// Summary for sorted_file_doesnt_exist_warn
 	/// </summary>
-	public ref class rewrite_arr_file_warn : public System::Windows::Forms::Form
+	public ref class sorted_file_doesnt_exist_warn : public System::Windows::Forms::Form
 	{
 	public:
-		rewrite_arr_file_warn(void)
+		sorted_file_doesnt_exist_warn(void)
 		{
 			InitializeComponent();
 			//
@@ -27,7 +27,7 @@ namespace practic {
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
-		~rewrite_arr_file_warn()
+		~sorted_file_doesnt_exist_warn()
 		{
 			if (components)
 			{
@@ -35,16 +35,15 @@ namespace practic {
 			}
 		}
 	private: System::Windows::Forms::Label^ label1;
+	protected:
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::Button^ button2;
-	protected:
 
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container^ components;
+		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -53,64 +52,66 @@ namespace practic {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(sorted_file_doesnt_exist_warn::typeid));
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(57, 20);
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label1->Location = System::Drawing::Point(72, 20);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(107, 13);
+			this->label1->Size = System::Drawing::Size(176, 16);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"array file already exist";
+			this->label1->Text = L"sorted file does not exist";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(57, 33);
+			this->label2->Location = System::Drawing::Point(87, 40);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(134, 13);
+			this->label2->Size = System::Drawing::Size(147, 13);
 			this->label2->TabIndex = 1;
-			this->label2->Text = L"do you wanna to rewrite it\?";
+			this->label2->Text = L"please click on \'sort elements\'";
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(59, 73);
+			this->button1->Location = System::Drawing::Point(123, 60);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(50, 23);
+			this->button1->Size = System::Drawing::Size(58, 22);
 			this->button1->TabIndex = 2;
-			this->button1->Text = L"rewrite";
+			this->button1->Text = L"OK";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &sorted_file_doesnt_exist_warn::button1_Click);
 			// 
-			// button2
-			// 
-			this->button2->Location = System::Drawing::Point(171, 73);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(49, 23);
-			this->button2->TabIndex = 3;
-			this->button2->Text = L"cancel";
-			this->button2->UseVisualStyleBackColor = true;
-			// 
-			// rewrite_arr_file_warn
+			// sorted_file_doesnt_exist_warn
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(284, 105);
-			this->Controls->Add(this->button2);
+			this->ClientSize = System::Drawing::Size(304, 91);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
-			this->Name = L"rewrite_arr_file_warn";
-			this->Text = L"rewrite_arr_file_warn";
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->MaximizeBox = false;
+			this->MinimizeBox = false;
+			this->Name = L"sorted_file_doesnt_exist_warn";
+			this->ShowInTaskbar = false;
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
+			this->Text = L"error";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) 
+	{
+		this->Close();
+	}
 	};
 }

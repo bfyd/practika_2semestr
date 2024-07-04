@@ -52,6 +52,7 @@ namespace practic {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(directory_doesnt_exist::typeid));
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
@@ -59,27 +60,29 @@ namespace practic {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(109, 74);
+			this->button1->Location = System::Drawing::Point(123, 60);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(64, 19);
+			this->button1->Size = System::Drawing::Size(58, 22);
 			this->button1->TabIndex = 0;
-			this->button1->Text = L"ok";
+			this->button1->Text = L"OK";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &directory_doesnt_exist::button1_Click);
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(80, 20);
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label1->Location = System::Drawing::Point(76, 20);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(115, 13);
+			this->label1->Size = System::Drawing::Size(168, 16);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"directory does not exist";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(24, 33);
+			this->label2->Location = System::Drawing::Point(41, 40);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(238, 13);
 			this->label2->TabIndex = 2;
@@ -89,12 +92,18 @@ namespace practic {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(284, 105);
+			this->ClientSize = System::Drawing::Size(304, 91);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->button1);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->MaximizeBox = false;
+			this->MinimizeBox = false;
 			this->Name = L"directory_doesnt_exist";
-			this->Text = L"directory_doesnt_exist";
+			this->ShowInTaskbar = false;
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
+			this->Text = L"error";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -104,5 +113,5 @@ namespace practic {
 	{
 		this->Close();
 	}
-};
+	};
 }

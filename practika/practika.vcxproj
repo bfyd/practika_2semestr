@@ -83,6 +83,8 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies />
+      <EntryPointSymbol>main</EntryPointSymbol>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -150,6 +152,9 @@
     <ClInclude Include="sort_array.h" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="arr_file_doesnt_exist_warn.resx">
+      <DependentUpon>arr_file_doesnt_exist_warn.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="directory_doesnt_exist.resx">
       <DependentUpon>directory_doesnt_exist.h</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="main_form.resx">
       <DependentUpon>main_form.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sorted_file_doesnt_exist_warn.resx">
+      <DependentUpon>sorted_file_doesnt_exist_warn.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

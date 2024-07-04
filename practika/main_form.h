@@ -7,8 +7,6 @@
 #include <cstdlib>
 #include "arr_file_doesnt_exist_warn.h"
 #include "generate_dialog.h"
-#include "rewrite_arr_file_warn.h"
-#include "rewrite_sorted_file_warn.h"
 #include "sorted_file_doesnt_exist_warn.h"
 #include "directory_doesnt_exist.h"
 #include "show_time_dialog.h"
@@ -68,6 +66,9 @@ namespace practic {
 
 	private: System::Windows::Forms::Button^ generate_array_button;
 	private: System::Windows::Forms::Button^ open_files_directory_button;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::Label^ label3;
 
 
 
@@ -84,18 +85,22 @@ namespace practic {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(main_form::typeid));
 			this->open_sorted_file_button = (gcnew System::Windows::Forms::Button());
 			this->open_array_file_button = (gcnew System::Windows::Forms::Button());
 			this->sort_elements_button = (gcnew System::Windows::Forms::Button());
 			this->generate_array_button = (gcnew System::Windows::Forms::Button());
 			this->open_files_directory_button = (gcnew System::Windows::Forms::Button());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// open_sorted_file_button
 			// 
-			this->open_sorted_file_button->Location = System::Drawing::Point(178, 91);
+			this->open_sorted_file_button->Location = System::Drawing::Point(252, 108);
 			this->open_sorted_file_button->Name = L"open_sorted_file_button";
-			this->open_sorted_file_button->Size = System::Drawing::Size(93, 23);
+			this->open_sorted_file_button->Size = System::Drawing::Size(215, 23);
 			this->open_sorted_file_button->TabIndex = 0;
 			this->open_sorted_file_button->Text = L"open sorted file";
 			this->open_sorted_file_button->UseVisualStyleBackColor = true;
@@ -103,9 +108,9 @@ namespace practic {
 			// 
 			// open_array_file_button
 			// 
-			this->open_array_file_button->Location = System::Drawing::Point(178, 39);
+			this->open_array_file_button->Location = System::Drawing::Point(252, 56);
 			this->open_array_file_button->Name = L"open_array_file_button";
-			this->open_array_file_button->Size = System::Drawing::Size(93, 23);
+			this->open_array_file_button->Size = System::Drawing::Size(215, 23);
 			this->open_array_file_button->TabIndex = 1;
 			this->open_array_file_button->Text = L"open array file";
 			this->open_array_file_button->UseVisualStyleBackColor = true;
@@ -113,9 +118,9 @@ namespace practic {
 			// 
 			// sort_elements_button
 			// 
-			this->sort_elements_button->Location = System::Drawing::Point(43, 91);
+			this->sort_elements_button->Location = System::Drawing::Point(12, 108);
 			this->sort_elements_button->Name = L"sort_elements_button";
-			this->sort_elements_button->Size = System::Drawing::Size(93, 23);
+			this->sort_elements_button->Size = System::Drawing::Size(214, 23);
 			this->sort_elements_button->TabIndex = 2;
 			this->sort_elements_button->Text = L"sort elements";
 			this->sort_elements_button->UseVisualStyleBackColor = true;
@@ -123,9 +128,11 @@ namespace practic {
 			// 
 			// generate_array_button
 			// 
-			this->generate_array_button->Location = System::Drawing::Point(43, 39);
+			this->generate_array_button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			this->generate_array_button->Location = System::Drawing::Point(12, 56);
 			this->generate_array_button->Name = L"generate_array_button";
-			this->generate_array_button->Size = System::Drawing::Size(93, 23);
+			this->generate_array_button->Size = System::Drawing::Size(214, 23);
 			this->generate_array_button->TabIndex = 3;
 			this->generate_array_button->Text = L"generate array";
 			this->generate_array_button->UseVisualStyleBackColor = true;
@@ -133,27 +140,69 @@ namespace practic {
 			// 
 			// open_files_directory_button
 			// 
-			this->open_files_directory_button->Location = System::Drawing::Point(178, 141);
+			this->open_files_directory_button->Location = System::Drawing::Point(252, 158);
 			this->open_files_directory_button->Name = L"open_files_directory_button";
-			this->open_files_directory_button->Size = System::Drawing::Size(93, 23);
+			this->open_files_directory_button->Size = System::Drawing::Size(215, 23);
 			this->open_files_directory_button->TabIndex = 4;
 			this->open_files_directory_button->Text = L"open directory";
 			this->open_files_directory_button->UseVisualStyleBackColor = true;
 			this->open_files_directory_button->Click += gcnew System::EventHandler(this, &main_form::open_files_directory_button_Click);
 			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label1->Location = System::Drawing::Point(87, 9);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(58, 16);
+			this->label1->TabIndex = 5;
+			this->label1->Text = L"Actions";
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label2->Location = System::Drawing::Point(335, 9);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(41, 16);
+			this->label2->TabIndex = 6;
+			this->label2->Text = L"Files";
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label3->Location = System::Drawing::Point(257, 206);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(210, 16);
+			this->label3->TabIndex = 7;
+			this->label3->Text = L"By: Yurov, Vidyaev, Zhiganov";
+			// 
 			// main_form
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(322, 206);
+			this->ClientSize = System::Drawing::Size(479, 231);
+			this->Controls->Add(this->label3);
+			this->Controls->Add(this->label2);
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->open_files_directory_button);
 			this->Controls->Add(this->generate_array_button);
 			this->Controls->Add(this->sort_elements_button);
 			this->Controls->Add(this->open_array_file_button);
 			this->Controls->Add(this->open_sorted_file_button);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->MaximizeBox = false;
+			this->MinimizeBox = false;
 			this->Name = L"main_form";
-			this->Text = L"main_form";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+			this->Text = L"arsorator";
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion

@@ -21,10 +21,28 @@
     <ClCompile Include="generate_dialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="done_dialog.cpp">
+    <ClCompile Include="directory_doesnt_exist.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="sort_array.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="show_time_dialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="arr_file_doesnt_exist_warn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sorted_file_doesnt_exist_warn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="generation_error.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="delete_successfully_message.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="delete_error_message.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,10 +53,28 @@
     <ClInclude Include="generate_dialog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="done_dialog.h">
+    <ClInclude Include="directory_doesnt_exist.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sort_array.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="show_time_dialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sorted_file_doesnt_exist_warn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="arr_file_doesnt_exist_warn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="generation_error.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="delete_successfully_message.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="delete_error_message.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

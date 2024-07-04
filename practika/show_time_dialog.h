@@ -57,6 +57,7 @@ namespace practic {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(show_time_dialog::typeid));
 			this->time_textbox = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->time_ok_btn = (gcnew System::Windows::Forms::Button());
@@ -67,26 +68,28 @@ namespace practic {
 			this->time_textbox->Enabled = false;
 			this->time_textbox->Location = System::Drawing::Point(163, 22);
 			this->time_textbox->Name = L"time_textbox";
-			this->time_textbox->Size = System::Drawing::Size(110, 20);
+			this->time_textbox->Size = System::Drawing::Size(98, 20);
 			this->time_textbox->TabIndex = 0;
 			this->time_textbox->Tag = L"duration_ms";
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(78, 25);
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label1->Location = System::Drawing::Point(68, 25);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(66, 13);
+			this->label1->Size = System::Drawing::Size(78, 13);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"time elapsed";
 			// 
 			// time_ok_btn
 			// 
-			this->time_ok_btn->Location = System::Drawing::Point(121, 60);
+			this->time_ok_btn->Location = System::Drawing::Point(123, 60);
 			this->time_ok_btn->Name = L"time_ok_btn";
 			this->time_ok_btn->Size = System::Drawing::Size(58, 22);
 			this->time_ok_btn->TabIndex = 2;
-			this->time_ok_btn->Text = L"ok";
+			this->time_ok_btn->Text = L"OK";
 			this->time_ok_btn->UseVisualStyleBackColor = true;
 			this->time_ok_btn->Click += gcnew System::EventHandler(this, &show_time_dialog::time_ok_btn_Click);
 			// 
@@ -94,12 +97,18 @@ namespace practic {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(307, 94);
+			this->ClientSize = System::Drawing::Size(304, 91);
 			this->Controls->Add(this->time_ok_btn);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->time_textbox);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->MaximizeBox = false;
+			this->MinimizeBox = false;
 			this->Name = L"show_time_dialog";
-			this->Text = L"show_time_dialog";
+			this->ShowInTaskbar = false;
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
+			this->Text = L"sorting completed";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

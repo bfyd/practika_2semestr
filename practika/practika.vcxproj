@@ -123,8 +123,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="arr_file_doesnt_exist_warn.cpp" />
+    <ClCompile Include="delete_error_message.cpp" />
+    <ClCompile Include="delete_successfully_message.cpp" />
     <ClCompile Include="directory_doesnt_exist.cpp" />
     <ClCompile Include="generate_dialog.cpp" />
+    <ClCompile Include="generation_error.cpp" />
     <ClCompile Include="main_form.cpp" />
     <ClCompile Include="show_time_dialog.cpp" />
     <ClCompile Include="sorted_file_doesnt_exist_warn.cpp" />
@@ -134,7 +137,16 @@
     <ClInclude Include="arr_file_doesnt_exist_warn.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="delete_error_message.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="delete_successfully_message.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="directory_doesnt_exist.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="generation_error.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="show_time_dialog.h">
@@ -155,8 +167,17 @@
     <EmbeddedResource Include="arr_file_doesnt_exist_warn.resx">
       <DependentUpon>arr_file_doesnt_exist_warn.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="delete_error_message.resx">
+      <DependentUpon>delete_error_message.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="delete_successfully_message.resx">
+      <DependentUpon>delete_successfully_message.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="directory_doesnt_exist.resx">
       <DependentUpon>directory_doesnt_exist.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="generation_error.resx">
+      <DependentUpon>generation_error.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="show_time_dialog.resx">
       <DependentUpon>show_time_dialog.h</DependentUpon>

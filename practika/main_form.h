@@ -11,6 +11,8 @@
 #include "directory_doesnt_exist.h"
 #include "show_time_dialog.h"
 #include "sort_array.h"
+#include "delete_successfully_message.h"
+#include "delete_error_message.h"
 #include <chrono>
 
 namespace practic {
@@ -69,6 +71,9 @@ namespace practic {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::Button^ delete_result_files_button;
+
 
 
 
@@ -94,6 +99,8 @@ namespace practic {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->delete_result_files_button = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// open_sorted_file_button
@@ -181,11 +188,31 @@ namespace practic {
 			this->label3->TabIndex = 7;
 			this->label3->Text = L"By: Yurov, Vidyaev, Zhiganov";
 			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(65, 174);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(0, 13);
+			this->label4->TabIndex = 8;
+			// 
+			// delete_result_files_button
+			// 
+			this->delete_result_files_button->Location = System::Drawing::Point(12, 158);
+			this->delete_result_files_button->Name = L"delete_result_files_button";
+			this->delete_result_files_button->Size = System::Drawing::Size(214, 23);
+			this->delete_result_files_button->TabIndex = 9;
+			this->delete_result_files_button->Text = L"delete result files";
+			this->delete_result_files_button->UseVisualStyleBackColor = true;
+			this->delete_result_files_button->Click += gcnew System::EventHandler(this, &main_form::delete_result_files_button_Click);
+			// 
 			// main_form
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(479, 231);
+			this->Controls->Add(this->delete_result_files_button);
+			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
@@ -212,6 +239,7 @@ namespace practic {
 		generate_dialog^ form3 = gcnew generate_dialog();
 		form3->ShowDialog();
 	}
+
 	private: System::Void open_array_file_button_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		fs::path filename = array_filename;
@@ -295,6 +323,34 @@ namespace practic {
 		{
 			arr_file_doesnt_exist_warn^ form6 = gcnew arr_file_doesnt_exist_warn;
 			form6->ShowDialog();
+		}
+	}
+	private: System::Void delete_result_files_button_Click(System::Object^ sender, System::EventArgs^ e) 
+	{
+		int i = 0;
+		fs::path filename = array_filename;
+		if (fs::exists(filename)) 
+		{
+			fs::remove(filename);
+			i++;
+		}
+
+		filename = sorted_filename;
+		if (fs::exists(filename))
+		{
+			fs::remove(filename);
+			i++;
+		}
+
+		if (i > 0) 
+		{
+			delete_successfully_message^ form10 = gcnew delete_successfully_message;
+			form10->ShowDialog();
+		}
+		if (i <= 0) 
+		{
+			delete_error_message^ form10 = gcnew delete_error_message;
+			form10->ShowDialog();
 		}
 	}
 };

@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include "sort_array.h"
+#include "generation_error.h"
 #include "arr_file_doesnt_exist_warn.h"
 
 namespace practic {
@@ -209,8 +210,9 @@ namespace practic {
 		}
 		else 
 		{
-			arr_file_doesnt_exist_warn^ form7 = gcnew arr_file_doesnt_exist_warn;
+			generation_error^ form7 = gcnew generation_error;
 			form7->ShowDialog();
+			return;
 		}
 		this->Close();
 	}

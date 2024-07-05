@@ -7,8 +7,10 @@
 #include <cstdlib>
 #include "arr_file_doesnt_exist_warn.h"
 #include "generate_dialog.h"
+#include "generation_error_size_warn.h"
 #include "sorted_file_doesnt_exist_warn.h"
 #include "directory_doesnt_exist.h"
+#include "file_is_broken_error_warn.h"
 #include "show_time_dialog.h"
 #include "sort_array.h"
 #include "delete_successfully_message.h"
@@ -287,7 +289,7 @@ namespace practic {
 		if (fs::exists(filename))
 		{
 			int32_t* array = nullptr;
-			size_t size = 0;
+			int size = 0;
 
 			if (read_array_from_file(array_filename, array, size))
 			{
@@ -312,8 +314,18 @@ namespace practic {
 			}
 			else
 			{
-				sorted_file_doesnt_exist_warn^ form8 = gcnew sorted_file_doesnt_exist_warn;
-				form8->ShowDialog();
+				if (size == 0)
+				{
+					generation_error_size_warn^ form8 = gcnew generation_error_size_warn;
+					form8->ShowDialog();
+					return;
+				}
+				if (!array) 
+				{
+					file_is_broken_error_warn^ form8 = gcnew file_is_broken_error_warn;
+					form8->ShowDialog();
+					return;
+				}
 				return;
 			}
 			show_time_dialog^ form9 = gcnew show_time_dialog(duration_ms);
@@ -334,7 +346,6 @@ namespace practic {
 			fs::remove(filename);
 			i++;
 		}
-
 		filename = sorted_filename;
 		if (fs::exists(filename))
 		{
@@ -346,12 +357,15 @@ namespace practic {
 		{
 			delete_successfully_message^ form10 = gcnew delete_successfully_message;
 			form10->ShowDialog();
+			return;
 		}
-		if (i <= 0) 
+		if (i == 0) 
 		{
 			delete_error_message^ form10 = gcnew delete_error_message;
 			form10->ShowDialog();
+			return;
 		}
+		return;
 	}
 };
 }

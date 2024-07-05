@@ -1,7 +1,7 @@
 #include "sort_array.h"
 #include <fstream>
 
-bool save_array_to_file(const std::string filename, ValueType* array, size_t size)
+bool save_array_to_file(const std::string filename, ValueType* array, int size)
 {
     if (!array)
     {
@@ -12,7 +12,7 @@ bool save_array_to_file(const std::string filename, ValueType* array, size_t siz
     if (fout.is_open())
     {
         fout << std::to_string(size) << std::endl;
-        for (size_t i = 0; i < size; i++)
+        for (int i = 0; i < size; i++)
         {
             fout << std::to_string(array[i]) << std::endl;
         }
@@ -22,7 +22,7 @@ bool save_array_to_file(const std::string filename, ValueType* array, size_t siz
     return false;
 }
 
-bool read_array_from_file(const std::string filename, ValueType* &array, size_t &size)
+bool read_array_from_file(const std::string filename, ValueType* &array, int &size)
 {
     array = nullptr;
     size = 0;
@@ -49,7 +49,7 @@ bool read_array_from_file(const std::string filename, ValueType* &array, size_t 
             return false;
         }
 
-        size_t i = 0;
+        int i = 0;
         while (std::getline(fin, line))
         {
             array[i] = std::stoi(line);
@@ -62,18 +62,18 @@ bool read_array_from_file(const std::string filename, ValueType* &array, size_t 
     return false;
 }
 
-ValueType* generate_array(ValueType start, ValueType end, size_t size)
+ValueType* generate_array(ValueType start, ValueType end, int size)
 {
     srand((uint32_t)time(NULL));
     ValueType* array = new ValueType[size];
-    for (size_t i = 0; i < size; i++)
+    for (int i = 0; i < size; i++)
     {
         array[i] = rand() % (end - start + 1) + start;
     }
     return array;
 }
 
-bool generate_array_to_file(const std::string filename, ValueType start, ValueType end, size_t size)
+bool generate_array_to_file(const std::string filename, ValueType start, ValueType end, int size)
 {
     ValueType* array = generate_array(start, end, size);
     if (!array)
@@ -86,7 +86,7 @@ bool generate_array_to_file(const std::string filename, ValueType start, ValueTy
 }
 
 // bubble sorting
-bool sort_array(ValueType* array, size_t size)
+bool sort_array(ValueType* array, int size)
 {
     if (!array || size == 0)
     {

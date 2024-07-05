@@ -36,13 +36,19 @@
     <ClCompile Include="sorted_file_doesnt_exist_warn.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="generation_error.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="delete_successfully_message.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="delete_error_message.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parametrs_error.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="generation_error_size_warn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="file_is_broken_error_warn.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -68,13 +74,19 @@
     <ClInclude Include="arr_file_doesnt_exist_warn.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="generation_error.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="delete_successfully_message.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="delete_error_message.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="parametrs_error.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="generation_error_size_warn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="file_is_broken_error_warn.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -126,9 +126,11 @@
     <ClCompile Include="delete_error_message.cpp" />
     <ClCompile Include="delete_successfully_message.cpp" />
     <ClCompile Include="directory_doesnt_exist.cpp" />
+    <ClCompile Include="file_is_broken_error_warn.cpp" />
     <ClCompile Include="generate_dialog.cpp" />
-    <ClCompile Include="generation_error.cpp" />
+    <ClCompile Include="generation_error_size_warn.cpp" />
     <ClCompile Include="main_form.cpp" />
+    <ClCompile Include="parametrs_error.cpp" />
     <ClCompile Include="show_time_dialog.cpp" />
     <ClCompile Include="sorted_file_doesnt_exist_warn.cpp" />
     <ClCompile Include="sort_array.cpp" />
@@ -146,7 +148,13 @@
     <ClInclude Include="directory_doesnt_exist.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="generation_error.h">
+    <ClInclude Include="file_is_broken_error_warn.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="generation_error_size_warn.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="parametrs_error.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="show_time_dialog.h">
@@ -176,8 +184,14 @@
     <EmbeddedResource Include="directory_doesnt_exist.resx">
       <DependentUpon>directory_doesnt_exist.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="generation_error.resx">
-      <DependentUpon>generation_error.h</DependentUpon>
+    <EmbeddedResource Include="file_is_broken_error_warn.resx">
+      <DependentUpon>file_is_broken_error_warn.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="generation_error_size_warn.resx">
+      <DependentUpon>generation_error_size_warn.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="parametrs_error.resx">
+      <DependentUpon>parametrs_error.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="show_time_dialog.resx">
       <DependentUpon>show_time_dialog.h</DependentUpon>

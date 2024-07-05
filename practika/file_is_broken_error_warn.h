@@ -10,12 +10,12 @@ namespace practic {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Summary for generation_error
+	/// Summary for file_is_broken_error_warn
 	/// </summary>
-	public ref class generation_error : public System::Windows::Forms::Form
+	public ref class file_is_broken_error_warn : public System::Windows::Forms::Form
 	{
 	public:
-		generation_error(void)
+		file_is_broken_error_warn(void)
 		{
 			InitializeComponent();
 			//
@@ -27,7 +27,7 @@ namespace practic {
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
-		~generation_error()
+		~file_is_broken_error_warn()
 		{
 			if (components)
 			{
@@ -52,7 +52,7 @@ namespace practic {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(generation_error::typeid));
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(file_is_broken_error_warn::typeid));
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
@@ -66,29 +66,29 @@ namespace practic {
 			this->button1->TabIndex = 0;
 			this->button1->Text = L"OK";
 			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &generation_error::button1_Click);
+			this->button1->Click += gcnew System::EventHandler(this, &file_is_broken_error_warn::button1_Click);
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label1->Location = System::Drawing::Point(90, 20);
+			this->label1->Location = System::Drawing::Point(118, 20);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(118, 16);
+			this->label1->Size = System::Drawing::Size(65, 16);
 			this->label1->TabIndex = 1;
-			this->label1->Text = L"generation error";
+			this->label1->Text = L"file error";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(100, 40);
+			this->label2->Location = System::Drawing::Point(70, 40);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(102, 13);
+			this->label2->Size = System::Drawing::Size(172, 13);
 			this->label2->TabIndex = 2;
-			this->label2->Text = L"size can not be zero";
+			this->label2->Text = L"array does not exist or file is broken";
 			// 
-			// generation_error
+			// file_is_broken_error_warn
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
@@ -100,10 +100,10 @@ namespace practic {
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximizeBox = false;
 			this->MinimizeBox = false;
-			this->Name = L"generation_error";
+			this->Name = L"file_is_broken_error_warn";
 			this->ShowInTaskbar = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
-			this->Text = L"generation error";
+			this->Text = L"error";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

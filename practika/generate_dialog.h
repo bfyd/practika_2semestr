@@ -3,7 +3,8 @@
 #include <iostream>
 #include <string>
 #include "sort_array.h"
-#include "generation_error.h"
+#include "generation_error_size_warn.h"
+#include "parametrs_error.h"
 #include "arr_file_doesnt_exist_warn.h"
 
 namespace practic {
@@ -44,7 +45,7 @@ namespace practic {
 			}
 		}
 	public:
-		size_t array_size;
+		int array_size;
 		int array_from;
 		int array_to;
 	protected:
@@ -199,20 +200,29 @@ namespace practic {
 
 		temp = marshal_string(text_to->Text);
 		array_to = stoi(temp, nullptr, 10);
+		
+		if (array_size < 1)
+		{
+			generation_error_size_warn^ form11 = gcnew generation_error_size_warn;
+			form11->ShowDialog();
+			return;
+		}
 
-		if (array_size) 
+		if (array_from > array_to)
+		{
+			parametrs_error^ form12 = gcnew parametrs_error;
+			form12->ShowDialog();
+			return;
+		}
+
+		else 
 		{
 			if (!generate_array_to_file("array.txt", array_from, array_to, array_size))
 			{
 				arr_file_doesnt_exist_warn^ form7 = gcnew arr_file_doesnt_exist_warn;
 				form7->ShowDialog();
+				return;
 			}
-		}
-		else 
-		{
-			generation_error^ form7 = gcnew generation_error;
-			form7->ShowDialog();
-			return;
 		}
 		this->Close();
 	}
